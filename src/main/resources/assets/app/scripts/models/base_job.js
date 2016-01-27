@@ -26,7 +26,7 @@ function($, Backbone, _, moment, BaseJobValidations) {
 
   BaseWhiteList = [
     'name', 'command', 'description', 'owner', 'ownerName', 'async', 'epsilon', 'executor',
-    'disabled', 'softError', 'cpus', 'mem', 'disk', 'highPriority'
+    'disabled', 'softError', 'cpus', 'mem', 'disk', 'highPriority', 'container'
   ];
 
   BaseJobModel = Backbone.Model.extend({

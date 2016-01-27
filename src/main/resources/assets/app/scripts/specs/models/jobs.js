@@ -64,6 +64,18 @@ function(_,
     }
   };
 
+  describe('Clone job', function(){
+    it('Sould have all fields from original job', function(){
+      var defaultAttributes, job, jobAttributes, jobCloneAttributes;
+      defaultAttributes = BaseJob.prototype.defaults.call();
+      job = new JobClass({name: defaultAttributes.name, container: {}});
+      jobAttributes = _.omit(job.attributes, 'id', 'persisted');
+      jobCloneAttributes = _.omit(job.clone().attributes, 'id', 'persisted');
+
+      expect(jobCopyAttributes).to.be.eql(jobAttributes);
+    });
+  });
+
   describe('Dependent jobs', function() {
     describe('should follow base valitity rules',
              BaseJobValidity(DependentJob));
